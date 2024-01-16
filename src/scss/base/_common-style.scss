@@ -1,0 +1,24 @@
+@use "../abstracts/variables" as v;
+@use "../abstracts/mixins" as *;
+
+html {
+  font-size: 1em;
+}
+
+:root {
+  @each $key, $value in v.$color {
+    --#{color}-#{$key}: #{$value};
+  }
+
+  @each $keys, $values in v.$text-style {
+    @each $key, $value in $values {
+      --#{$keys}-#{$key}: #{$value};
+    }
+  }
+  
+  @each $keys, $values in v.$indentation {
+    @each $key, $value in $values {
+      --#{$keys}-#{$key}: #{$value};
+    }
+  }
+}
